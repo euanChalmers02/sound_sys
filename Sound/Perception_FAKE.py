@@ -36,14 +36,6 @@ obj4 = Sound([749, 230], 0, "Object 4. " + 'Welcome to the edinburgh library, Th
 example_5 = [obj1, obj2, obj3,obj4]
 
 
-obj1 = Sound([79, 470], 0, "Object 1. " + "Il Calcio bistro", True)
-obj2 = Sound([65, 291], 0, "Object 2. " + edhelp_sign, True)
-obj3 = Sound([348, 195], 0, "Object 3. " + long_text, True)
-obj4 = Sound([700, 279], 0, "Object 3. " + exit_sign, True)
-obj5 = Sound([1076, 440], 0, "Object 3. " + toilet_sign, True)
-obj6 = Sound([937, 148], 0, "Object 3. " + long_text, True)
-all_objects = [obj1, obj2, obj3, obj4, obj5, obj6]
-
 
 all_examples = [example_1, example_2, example_3, example_4,example_5]
 

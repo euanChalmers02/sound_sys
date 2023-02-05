@@ -113,15 +113,15 @@ class scan_scenarios(unittest.TestCase):
     def test_reads_everything(self):
         # it's already been built in! The long text doesn't get read. good.
 
-        obj1 = Sound([249, 348], 0, "Object 1. " + "Il Calcio bistro", True)
-        obj2 = Sound([749, 230], 0, "Object 2. " + "On successful completion of this course, you should be able to:" +
+        obj1 = Sound([224,371], 0, "Object 1. " + "Il Calcio bistro", True)
+        obj2 = Sound([1095,224], 0, "Object 2. " + "On successful completion of this course, you should be able to:" +
                 "1. Working as members of a team in designing and implementing a complex and multi-faceted system" +
                 "2. Planning and monitoring the effort of a project to meet milestones and deadlines, within a limited time scale" +
                 "3. Drawing together knowledge and understanding of wide areas of software and hardware systems" +
                 "4. Demonstrating and presenting the outcome from a practical project" +
                 "5. Documenting the feasibility, design and development of a potential product", True)
 
-        obj3 = Sound([986, 253], 0, "Object 3. " + edhelp_sign, True)
+        obj3 = Sound([1185,556], 0, "Object 3. " + edhelp_sign, True)
 
         text1 = "On successful completion of this course, you should be able to: " \
                 "1. Working as members of a team in designing and implementing a complex and multi-faceted system" \
