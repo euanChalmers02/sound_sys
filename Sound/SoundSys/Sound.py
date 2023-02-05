@@ -5,10 +5,12 @@ import sounddevice as sd
 import time
 import pyttsx3
 
-from SoundSys.Setup import Setup
-import SoundSys.TextToSpeech as TX
+# import Setup
+import Sound.SoundSys.TextToSpeech as TX
 
 # adjustable output parameters (add these to the setup class??)
+from Sound.SoundSys.Setup import Setup
+
 beep_pause = 800  # ms (can we standardise these)
 beep_duration = 0.4  # sec
 st = Setup(1280, 720, 79, 41)  # this should be cache and passed as an arg??? Not done due to unit tests
@@ -86,7 +88,7 @@ class Sound:
         if self.text == "":
             return
 
-        if engine.inLoop:
+        if engine._inLoop:
             engine.endLoop()
 
         num_words = len(self.text.split(" "))
