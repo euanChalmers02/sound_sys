@@ -98,10 +98,6 @@ class scan_scenarios(unittest.TestCase):
         play_sounds(all_objects)
 
 
-
-
-
-
     # other synthetic scenarios.
     """
     - too many objects (5+)
