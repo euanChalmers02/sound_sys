@@ -13,7 +13,7 @@ beep_pause = 800  # ms (can we standardise these)
 beep_duration = 0.4  # sec
 st = Setup(1280, 720, 79, 41)  # this should be cache and passed as an arg??? Not done due to unit tests
 engine = pyttsx3.init()
-engine.setProperty('rate', 200)
+engine.setProperty('rate', 400)
 beep_type = 'beep-07a.wav'
 
 
@@ -89,7 +89,9 @@ class Sound:
         if engine.inLoop:
             engine.endLoop()
 
+        num_words = len(self.text.split(" "))
 
+        if num_words > 5:
             engine.say('Long Text Here')
             engine.runAndWait()
             time.sleep(2)
@@ -98,9 +100,9 @@ class Sound:
         else:
             engine.say(self.text)
             engine.runAndWait()
-            # this is  part of the multithreading problem
-            # how to know the duration of the text readings
-            # could we make duration a function of number of words or characters accounting for speach speed
+        #     # this is  part of the multithreading problem
+        #     # how to know the duration of the text readings
+        #     # could we make duration a function of number of words or characters accounting for speach speed
             time.sleep(2.1)
             engine.stop()
 
