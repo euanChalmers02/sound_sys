@@ -37,36 +37,70 @@ def play_sounds(all_objects):
 
 class scan_scenarios(unittest.TestCase):
 
+    # -------------------------------------------------
+    # test cases 1-5 (A-E) used for preliminary user testing
+    # -------------------------------------------------
+
     # real-image scenarios
+
     def test_real_lib_1(self):
-        # can in our implmentation we order the object ourselves inside the loop?
-        # can we cache the starndard object names and the names as wav files etc
-        obj1 = Sound([583, 281], 0, "Object 1. " + edhelp_sign, True)
-        obj2 = Sound([1097, 60], 0, "Object 2. " + "Library Cafe", True)
-        all_objects = [obj1, obj2]
+        obj1 = Sound([245, 188], 0, "Object 1. " + toilet_sign, True)
+        obj3 = Sound([1179, 258], 0, "Object 2. " + long_text, True)
+        obj2 = Sound([914, 274], 0, "Object 3. " + exit_sign, True)
+        all_objects = [obj1, obj3, obj2]
 
         play_sounds(all_objects)
 
-    def test_real_lib_2(self):
-        obj1 = Sound([245, 188], 0, "Object 1. " + toilet_sign, True)
-        obj2 = Sound([914, 274], 0, "Object 2. " + exit_sign, True)
-        obj3 = Sound([1179, 258], 0, "Object 3. " + long_text, True)
+    def test_real_restaurant_2(self):
+        obj2 = Sound([986, 253], 0, "Object 1. " + toilet_sign, True)
+        obj3 = Sound([749, 230], 0, "Object 2. " + long_text, True)
+        obj1 = Sound([249, 348], 0, "Object 3. " + "Il Calcio bistro", True)
+        all_objects = [obj2, obj3, obj1]
+        play_sounds(all_objects)
+
+    # synthetic scenario
+    # this is the last test case.
+    def test_long_text_3(self):
+        # it's already been built in! The long text doesn't get read. good.
+
+        obj1 = Sound([224, 371], 0, "Object 1. " + exit_sign, True)
+        obj2 = Sound([1095, 224], 0,
+                     "Object 2. " + "On successful completion of this course, you should be able to:" +
+                     "1. Working as members of a team in designing and implementing a complex and multi-faceted system" +
+                     "2. Planning and monitoring the effort of a project to meet milestones and deadlines, within a limited time scale" +
+                     "3. Drawing together knowledge and understanding of wide areas of software and hardware systems" +
+                     "4. Demonstrating and presenting the outcome from a practical project" +
+                     "5. Documenting the feasibility, design and development of a potential product", True)
+        obj3 = Sound([1185, 556], 0, "Object 3. " + edhelp_sign, True)
+
+        text1 = "On successful completion of this course, you should be able to: " \
+                "1. Working as members of a team in designing and implementing a complex and multi-faceted system" \
+                "2. Planning and monitoring the effort of a project to meet milestones and deadlines, within a limited time scale" \
+                "3. Drawing together knowledge and understanding of wide areas of software and hardware systems" \
+                "4. Demonstrating and presenting the outcome from a practical project" \
+                "5. Documenting the feasibility, design and development of a potential product"
         all_objects = [obj1, obj2, obj3]
 
         play_sounds(all_objects)
 
-    def test_real_cinema_3(self):
+    def test_real_cinema_4(self):
         obj1 = Sound([308, 253], 0, "Object 1. " + "Cinema City", True)
         all_objects = [obj1]
         play_sounds(all_objects)
 
-    def test_real_restaurant_4(self):
-        obj1 = Sound([249, 348], 0, "Object 1. " + "Il Calcio bistro", True)
-        obj2 = Sound([986, 253], 0, "Object 2. " + edhelp_sign, True)
-        obj3 = Sound([749, 230], 0, "Object 3. " + long_text, True)
-        all_objects = [obj2, obj3, obj1]
+    def test_real_lib_5(self):
+        # can in our implmentation we order the object ourselves inside the loop?
+        # can we cache the starndard object names and the names as wav files etc
+        obj2 = Sound([1097, 60], 0, "Object 1. " + "Library Cafe", True)
+        obj1 = Sound([583, 281], 0, "Object 2. " + edhelp_sign, True)
+        all_objects = [obj2, obj1]
+
         play_sounds(all_objects)
-    # other synthetic scenarios.
+
+
+
+
+
 
     # other synthetic scenarios.
     """
@@ -108,30 +142,6 @@ class scan_scenarios(unittest.TestCase):
 
     # the need for a "read long text" button:
     # starts reading long text automatically
-
-    # this is the last test case.
-    def test_reads_everything(self):
-        # it's already been built in! The long text doesn't get read. good.
-
-        obj1 = Sound([224,371], 0, "Object 1. " + "Il Calcio bistro", True)
-        obj2 = Sound([1095,224], 0, "Object 2. " + "On successful completion of this course, you should be able to:" +
-                "1. Working as members of a team in designing and implementing a complex and multi-faceted system" +
-                "2. Planning and monitoring the effort of a project to meet milestones and deadlines, within a limited time scale" +
-                "3. Drawing together knowledge and understanding of wide areas of software and hardware systems" +
-                "4. Demonstrating and presenting the outcome from a practical project" +
-                "5. Documenting the feasibility, design and development of a potential product", True)
-
-        obj3 = Sound([1185,556], 0, "Object 3. " + edhelp_sign, True)
-
-        text1 = "On successful completion of this course, you should be able to: " \
-                "1. Working as members of a team in designing and implementing a complex and multi-faceted system" \
-                "2. Planning and monitoring the effort of a project to meet milestones and deadlines, within a limited time scale" \
-                "3. Drawing together knowledge and understanding of wide areas of software and hardware systems" \
-                "4. Demonstrating and presenting the outcome from a practical project" \
-                "5. Documenting the feasibility, design and development of a potential product"
-        all_objects = [obj1, obj2, obj3]
-
-        play_sounds(all_objects)
 
     # test/simulate with buttons.
     # three long texts to choose from
