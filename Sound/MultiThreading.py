@@ -1,10 +1,8 @@
 import threading
 import queue
 import time
-from enum import Enum
 
 from Perception_FAKE import give_me_a_scan
-from SoundSys.Sound import Sound
 import SoundSys.TextToSpeech as TX
 
 # https://www.tutorialspoint.com/python/python_multithreading.htm/
@@ -137,8 +135,14 @@ def quit():
 def quit_action():
     TX.play_msg_cache('quit_scanning')
 
+def perp_action():
+    flag = True
+    while flag:
+        time.sleep(2)
 
 thread2 = threading.Thread(target=thread_two_action)
+
+perception_thread = threading.Thread(target=perp_action)
 
 if __name__ == '__main__':
     TX.play_msg_cache('power_on')
@@ -147,6 +151,7 @@ if __name__ == '__main__':
     # would add all the button listing here and in the console function
     # FORMAT -->  'CONSOLE COMMAND' : THE FUNCTION
     cmd_actions = {'scan': scanning_mode, 'p': pause, 'm': read_out_full, 'r': resume, 'q': quit}
+    # cmd_actions = {'scan': scanning_mode, 'p': pause, 'm': read_out_full, 'p': resume, 'q': quit, 'c':customise, 'm':review read_out_full}
     cmd_queue = queue.Queue()
 
     dj = threading.Thread(target=console, args=(cmd_queue,))
@@ -154,6 +159,8 @@ if __name__ == '__main__':
 
     # automatically starts scanning mode
     scanning_mode()
+
+    perception_thread.start()
 
     while 1:
         cmd = cmd_queue.get()

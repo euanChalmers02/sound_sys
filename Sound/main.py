@@ -1,10 +1,4 @@
-import SoundSys.TextToSpeech as TX
 from SoundSys.Sound import Sound
-from Perception_FAKE import give_me_a_scan
-
-import sounddevice as sd
-import librosa
-
 
 # orders the objects passed into left to right how to implement into some sport of wrapper within the main clas thread
 def order_objects_passed(all_objects):

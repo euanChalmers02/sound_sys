@@ -40,9 +40,16 @@ class Sound:
             print('flagged front item')
             self.front = True
 
-        elevation = str(elev)
+        diff_checker = [17,35,64,-17,-35,-64]
+        diff_dict = {17:"17,5", 35:"35,3",64: "64,8", -17 : "-17,5" , -35 : "-35,3" , -64 : "-64,8"}
 
-        return '/azi_' + str(bearing) + ',0_ele_' + str(elevation) + ',0.wav'
+        if elev in diff_checker:
+            print('found an outliyer')
+            elevation = diff_dict[elev]
+        else:
+            elevation = str(elev)+',0'
+
+        return '/azi_' + str(bearing) + ',0_ele_' + str(elevation) + '.wav'
 
     def __init__(self, coord, distance, text, beep):
         self.front = None
