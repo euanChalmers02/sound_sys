@@ -5,11 +5,8 @@ import sounddevice as sd
 import time
 import pyttsx3
 
-# import Setup
-import Sound.SoundSys.TextToSpeech as TX
-
 # adjustable output parameters (add these to the setup class??)
-from Sound.SoundSys.Setup import Setup
+from .Setup import Setup
 
 beep_pause = 800  # ms (can we standardise these)
 beep_duration = 0.4  # sec
@@ -28,8 +25,8 @@ def closest_value(input_list, input_value):
 
 class Sound:
     # https://www.york.ac.uk/sadie-project/database.html
-    D1_YORK_SRC_PATH = '../D1_HRIR_WAV/44K_16bit'
-    BEEP_SOUND_ONE = '../beeps/'
+    D1_YORK_SRC_PATH = '/Users/euanchalmers/Desktop/yolov5/fnd/D1_HRIR_WAV/44K_16bit'
+    BEEP_SOUND_ONE = '/Users/euanchalmers/Desktop/yolov5/fnd/beeps/'
 
     def convert_to_file(self):
 
@@ -84,8 +81,8 @@ class Sound:
     def play(self):
         if not self.beep:
             return
-        elif self.front:
-            TX.play_msg_cache('front')
+        # elif self.front:
+        #     TX.play_msg_cache('front')
 
         sd.play(self.Bin_Max, self.freq)
         sd.sleep(int(beep_duration * beep_pause))

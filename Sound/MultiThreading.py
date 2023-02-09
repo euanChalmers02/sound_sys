@@ -16,6 +16,7 @@ class ThreadingState:
         self.pause_length = 1
         self.current_object = None
         self.quit = False
+        self.objects = []
 
 
 # setup for the threading state
@@ -144,9 +145,16 @@ thread2 = threading.Thread(target=thread_two_action)
 
 perception_thread = threading.Thread(target=perp_action)
 
-if __name__ == '__main__':
-    TX.play_msg_cache('power_on')
 
+
+
+
+if __name__ == '__main__':
+    # TX.play_msg_cache('power_on')
+
+
+
+    cdwbhjcwdj
 
     # would add all the button listing here and in the console function
     # FORMAT -->  'CONSOLE COMMAND' : THE FUNCTION
@@ -159,7 +167,7 @@ if __name__ == '__main__':
 
     # automatically starts scanning mode
     scanning_mode()
-
+    # this will be where the perception sys sits
     perception_thread.start()
 
     while 1:
